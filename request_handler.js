@@ -1,12 +1,5 @@
-module.exports = function (method, url, headers, request_body) {
-	var response_body = JSON.strinigfy({ hello: 'world' });
+var routes = require('./routes');
 
-	return Promise.resolve({
-		status: 200,
-		headers: {
-			'Content-Type': 'application/json',
-			'Content-Length': Buffer.byteLength(response_body)
-		},
-		body: response_body
-	});
+module.exports = function (method, url, headers, request_body) {
+	return route(method, url, headers, request_body);
 };
